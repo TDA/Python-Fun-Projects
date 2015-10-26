@@ -1,4 +1,8 @@
 __author__ = 'saipc'
 
-with open('selfPrinter.py') as file:
-    print file.read()
+def selfPrinter(fileName):
+    with open(fileName) as file:
+        print file.read()
+
+
+selfPrinter('selfPrinter.py')
