@@ -2,10 +2,10 @@ __author__ = 'saipc'
 
 __author__ = 'saipc'
 import requests
-# server checker for SS Class, can keep track of which teams have deployed
+
 def makeRequest(url):
     try:
-        r = requests.get(url, verify=False, timeout=0.015)
+        r = requests.get(url, verify=False, timeout=0.010)
         return r
     except Exception as e:
         print "Timeout"
@@ -27,4 +27,4 @@ def performDDOS(url, numberOfRequests):
         print "Failed Request : " + str(request) + " Server not responding"
     print "Total failed requests", len(requestsFailed) , "/", 150
 
-performDDOS("https://group13.mobicloud.asu.edu/SBS/", 150)
+performDDOS("https://group2.mobicloud.asu.edu/UserLogin.aspx", 150)

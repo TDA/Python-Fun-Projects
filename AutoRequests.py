@@ -30,7 +30,7 @@ def genAutoFormRequests(url):
         print r.cookies
 
 if __name__ == '__main__':
-    genAutoFormRequests('https://group13.mobicloud.asu.edu/SBS/NewRegUser')
+    genAutoFormRequests('https://group1.mobicloud.asu.edu/SBS/NewRegUser')
 
     #_csrf:"f9c75c24-4271-4718-a306-32ff18c9a8f1"
     #tran:"Modify"
