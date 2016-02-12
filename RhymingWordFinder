@@ -23,7 +23,7 @@ def find_words(word):
     }
     r = requests.get("http://www.rhymezone.com/r/rhyme.cgi?typeofrhyme=perfect&Word=" + word, headers=headers)
 
-    # print(r.status_code)
+    print(r.status_code)
     # print(r.text)
     html = BeautifulSoup(r.text, 'html.parser')
     # print(html)
