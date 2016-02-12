@@ -3,6 +3,11 @@ import requests
 from bs4 import BeautifulSoup
 # http://www.rhymezone.com/r/rhyme.cgi?typeofrhyme=perfect&Word=word&loc=spellmap3
 
+def extract_words(link):
+    print(link)
+    link = BeautifulSoup(link, 'html.parser')
+    print(link)
+
 def find_words(word):
     words = []
     headers = {
@@ -14,10 +19,11 @@ def find_words(word):
     r = requests.get("http://www.rhymezone.com/r/rhyme.cgi?typeofrhyme=perfect&Word=" + word, headers=headers)
 
     print(r.status_code)
-    print(r.text)
+    # print(r.text)
     html = BeautifulSoup(r.text, 'html.parser')
     # print(html)
-
+    words_links = html.findAll('a', "r")
+    words = map(extract_words, words_links)
     return words
 
 find_words("sai")
