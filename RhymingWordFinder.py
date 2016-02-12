@@ -1,12 +1,17 @@
+#!/usr/bin/env python3
+import sys
+
 __author__ = 'saipc'
 import requests
 from bs4 import BeautifulSoup
 # http://www.rhymezone.com/r/rhyme.cgi?typeofrhyme=perfect&Word=word&loc=spellmap3
 
-def extract_words(link):
-    print(link)
-    link = BeautifulSoup(link, 'html.parser')
-    print(link)
+def extract_words(links):
+    words = []
+    for link in links:
+        # print(link.text)
+        words.append(link.text)
+    return words
 
 def find_words(word):
     words = []
@@ -23,7 +28,8 @@ def find_words(word):
     html = BeautifulSoup(r.text, 'html.parser')
     # print(html)
     words_links = html.findAll('a', "r")
-    words = map(extract_words, words_links)
-    return words
+    words = extract_words(words_links)
+    print(words)
 
-find_words("sai")
+word = sys.argv[1]
+find_words(word)
