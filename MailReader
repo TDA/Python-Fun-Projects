@@ -10,6 +10,6 @@ def read_mails(filename):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print 'Usage: python Mailreader.py mailfilename'
+        print 'Usage: Mailreader mailfilename'
         sys.exit(1)
     read_mails(sys.argv[1])
