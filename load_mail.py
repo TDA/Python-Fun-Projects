@@ -1,3 +1,5 @@
+import re
+
 __author__ = 'saipc'
 import os
 
@@ -31,8 +33,14 @@ def is_header_present(message, header):
 
 messages = read_mails('~/reguser')
 
+# lets make these non-capturing
+user_regex = re.compile("(?:(?:reg)|(?:mal)|n)user(\d+)@wackopicko\.com")
+
 for m in messages:
-    print(m)
+    print(m["to"], m["x-original-to"])
+    matches = re.match(user_regex, m["x-original-to"])
+    print("Form id: ", matches.group(1))
+
 
     # keys = m.keys()
     # for k in keys:
