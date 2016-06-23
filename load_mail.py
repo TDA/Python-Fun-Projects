@@ -31,15 +31,17 @@ def check_total_mails(filename):
 def is_header_present(message, header):
     return message.contains(header)
 
-messages = read_mails('~/reguser')
+messages = read_mails(os.path.join('~', NO_INJECTION_FILE))
 
-# lets make these non-capturing
+# lets make these non-capturing, so we can directly
+# get the form_id, and the entire string alone :D double kill!!
 user_regex = re.compile("(?:(?:reg)|(?:mal)|n)user(\d+)@wackopicko\.com")
 
 for m in messages:
     print(m["to"], m["x-original-to"])
     matches = re.match(user_regex, m["x-original-to"])
-    print("Form id: ", matches.group(1))
+    print("Form id: ", matches.group(1), matches.group(0))
+    #TODO: write a SQL query to fetch the right row
 
 
     # keys = m.keys()
