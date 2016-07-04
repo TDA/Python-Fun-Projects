@@ -1,5 +1,6 @@
 __author__ = 'saipc'
 import random
+import pyperclip
 
 def wish(name):
     return 'Happy Birthday ' + name
@@ -17,5 +18,7 @@ def thank(name):
            random.choice(return_wishes) + ' ' + \
            random.choice(smileys)
 
+# add list of ppl here from the html extracted from fb
+# that way this can generate the required thank you notes
 for i in xrange(5):
     print(thank('sai'))
