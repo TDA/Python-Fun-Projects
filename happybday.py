@@ -1,7 +1,5 @@
 __author__ = 'saipc'
 import random
-import pyperclip
-import os
 
 def wish(name):
     return 'Happy Birthday ' + name
@@ -18,6 +16,8 @@ def thank(name):
 
 # add list of ppl here from the html extracted from fb
 # that way this can generate the required thank you notes
+# finished this, but can use pyperclip for c/p
+# unfortunately fb doesnt allow js posting anymore :(
 if __name__ == '__main__':
     print(wish('Sai'))
     with open('Data/BDayFilterResults.html', 'r') as f:
